@@ -13,11 +13,19 @@ Problem: If two threads call getInstance() simultaneously when instance is null,
  */
 
 
-public class LazySingleton {
+import java.io.Serial;
+import java.io.Serializable;
 
+public class LazySingleton  implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private static LazySingleton INSTANCE;
 
-    private LazySingleton(){}
+    private LazySingleton(){
+        if(INSTANCE!=null){
+            throw new IllegalStateException("Singleton object already exist");
+        }
+    }
 
     public static LazySingleton getInstance(){
         if(INSTANCE==null){
@@ -30,5 +38,10 @@ public class LazySingleton {
             INSTANCE= new LazySingleton();
         }
         return INSTANCE;
+    }
+
+    //Override readResolve to return the same instance
+    protected Object readResolve() {
+        return getInstance(); // Ensures Singleton during deserialization
     }
 }
