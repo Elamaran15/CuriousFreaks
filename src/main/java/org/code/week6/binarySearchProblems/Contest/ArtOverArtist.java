@@ -10,9 +10,11 @@ Problem
 Submissions
 Leaderboard
 Discussions
+
 Maggi wants to color her garage that has n boards with different lengths.
 The length of ith board is given by arr[i] where arr[] is an array of n integers.
 She hired k artists for this work and each artist takes 1 unit time to paint 1 unit of the board.
+
 
 Return the minimum time to get this job done if all artists start together with the constraint
 that any artist will only paint continuous boards,

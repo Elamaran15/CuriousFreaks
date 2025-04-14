@@ -56,7 +56,7 @@ public class RotateArrayLeetCodeMedium {
 
 
     static void rotateOptimised(int[] nums, int k){
-        k=k%nums.length;  //if nums,length == 2,k=4 no use of rotating 4 times so length 2
+        k=k%nums.length;  //if nums.length == 2,k=4 no use of rotating 4 times so length 2
         int[] temp=new int[k];
 
         System.arraycopy(nums, 0, temp, 0, k);
