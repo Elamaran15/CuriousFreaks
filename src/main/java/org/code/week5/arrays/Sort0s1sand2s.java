@@ -10,7 +10,7 @@ You need to solve this problem without utilizing the built-in sort function.
 
 Examples:
 
-Input: arr[] = [0, 1, 2, 0, 1, 2]
+Input: arr[] = [  ]
 Output: [0, 0, 1, 1, 2, 2]
 Explanation: 0s 1s and 2s are segregated into ascending order.
 Input: arr[] = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
@@ -28,7 +28,8 @@ Medium
 Topics
 Companies
 Hint
-Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+Given an array nums with n objects colored red, white, or blue,
+sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
 
 We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
 
@@ -94,8 +95,45 @@ public class Sort0s1sand2s {
        arr[low]=temp;
     }
 
+
+
+    //practice
+    static void inPlaceSort(int[] arr){
+        int zero=0;
+        int first=0;
+        int second=arr.length-1;
+
+        while(first<=second){
+            if(arr[first]== 0 && arr[zero]==0){
+                zero++;
+                first++;
+            }else if(arr[first]==0){
+                swap(arr,first,zero);
+                zero++;
+            }
+            else if(arr[first]==2){
+                swap(arr,first,second);
+                second--;
+            }else{
+                first++;
+            }
+
+        }
+
+
+        Arrays.stream(arr).forEach(System.out::println);
+
+    }
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
-      int[] arr={2,2};
-        sort012OptimalSolution(arr);
+      int[] arr={0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        inPlaceSort(arr);
     }
 }

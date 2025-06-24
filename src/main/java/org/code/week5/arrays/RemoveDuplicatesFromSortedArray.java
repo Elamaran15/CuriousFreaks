@@ -33,8 +33,29 @@ public class RemoveDuplicatesFromSortedArray {
         return i+1;
     }
 
+
+
+
+    static int practice(int[] nums){
+        int i=0;
+        int j=1;
+        int size=0;
+        while(j<nums.length){
+            if(nums[i]!=nums[j]){
+                nums[i+1]=nums[j];
+                i++;
+                j++;
+                size++;
+            }else{
+                j++;
+            }
+        }
+
+        return size;
+    }
+
     public static void main(String[] args) {
         int[] arr={1,1,2};
-        System.out.println(removeDuplicates(arr));
+        System.out.println(practice(arr));
     }
 }
