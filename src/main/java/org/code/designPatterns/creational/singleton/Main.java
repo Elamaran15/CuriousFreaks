@@ -48,5 +48,15 @@ public class Main {
 
         System.out.println(doubleCheckSingleton);
         System.out.println(doubleCheckSingleton1);
+
+        System.out.println("****************************");
+
+        BillPughSingleton billPughSingleton=BillPughSingleton.getInstance();
+        BillPughSingleton billPughSingleton2=BillPughSingleton.getInstance();
+
+        System.out.println(billPughSingleton);
+        System.out.println(billPughSingleton2);
+
+
     }
 }

@@ -67,5 +67,20 @@ public class PracticeList {
         String an=words.stream().collect(Collectors.joining(", "));
         System.out.println(an);
         System.out.println("****************************");
+
+
+        //Sum of even numbers using streams
+        List<Integer> even = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+       int evenAns= even.stream().filter(a-> a%2==0).reduce(0, Integer::sum);
+       int evenAns2=even.stream().filter(a-> a%2==0).mapToInt(Integer::intValue).sum();
+       System.out.println("sum of even:"+evenAns);
+        System.out.println(an);
+        System.out.println("****************************");
+
+
+        List<Integer> answ= even.stream().peek(c->c=c+1).toList();
+        System.out.println(even);
+        System.out.println(answ);
+
     }
 }

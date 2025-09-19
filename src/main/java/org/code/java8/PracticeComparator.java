@@ -1,6 +1,7 @@
 package org.code.java8;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PracticeComparator {
 
@@ -34,9 +35,15 @@ public class PracticeComparator {
     }
 
 
+    static void findTheLongestString(){
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "grapefruit");
+        String word=words.stream().max(Comparator.comparingInt(String::length)).orElse("");
+        System.out.println(word);
+    }
+
 
 
     public static void main(String[] args) {
-        problemTwo();
+        findTheLongestString();
     }
 }
